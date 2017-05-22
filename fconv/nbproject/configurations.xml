@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="69">
+  <logicalFolder name="root" displayName="root" projectFiles="true">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+      <logicalFolder name="C_libs" displayName="C_libs" projectFiles="true">
+        <itemPath>../C_libs/ELEMENT_DATA_new_GN.cpp</itemPath>
+        <itemPath>../C_libs/ELEMENT_DATA_new_GN.h</itemPath>
+        <itemPath>../C_libs/atom_GN.cpp</itemPath>
+        <itemPath>../C_libs/atom_GN.h</itemPath>
+        <itemPath>../C_libs/atom_properties_GN.cpp</itemPath>
+        <itemPath>../C_libs/atom_properties_GN.h</itemPath>
+        <itemPath>../C_libs/bron_kerbosch_GN.hpp</itemPath>
+        <itemPath>../C_libs/cluster_GN.hpp</itemPath>
+        <itemPath>../C_libs/crystallizer_GN.cpp</itemPath>
+        <itemPath>../C_libs/crystallizer_GN.h</itemPath>
+        <itemPath>../C_libs/delaunay_GN.cpp</itemPath>
+        <itemPath>../C_libs/delaunay_GN.h</itemPath>
+        <itemPath>../C_libs/files_GN.cpp</itemPath>
+        <itemPath>../C_libs/files_GN.h</itemPath>
+        <itemPath>../C_libs/grid_GN.hpp</itemPath>
+        <itemPath>../C_libs/linalg_GN.hpp</itemPath>
+        <itemPath>../C_libs/message_GN.hpp</itemPath>
+        <itemPath>../C_libs/molecule_GN.cpp</itemPath>
+        <itemPath>../C_libs/molecule_GN.h</itemPath>
+        <itemPath>../C_libs/mw_match_GN.cpp</itemPath>
+        <itemPath>../C_libs/mw_match_GN.h</itemPath>
+        <itemPath>../C_libs/octree_GN.hpp</itemPath>
+        <itemPath>../C_libs/optalign_GN.hpp</itemPath>
+        <itemPath>../C_libs/protein_GN.cpp</itemPath>
+        <itemPath>../C_libs/protein_GN.h</itemPath>
+        <itemPath>../C_libs/seqalign_GN.hpp</itemPath>
+        <itemPath>../C_libs/stl_ptr_GN.hpp</itemPath>
+        <itemPath>../C_libs/string_fu_GN.hpp</itemPath>
+        <itemPath>../C_libs/structure_GN.cpp</itemPath>
+        <itemPath>../C_libs/structure_GN.h</itemPath>
+        <itemPath>../C_libs/structure_additional_GN.cpp</itemPath>
+        <itemPath>../C_libs/structure_additional_GN.h</itemPath>
+        <itemPath>../C_libs/timer_GN.hpp</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>fconv.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>../C_libs</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <compilerSet>GNU|GNU</compilerSet>
+        <platform>2</platform>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <incDir>
+            <pElem>../C_libs</pElem>
+          </incDir>
+          <commandLine>-pedantic -Wall -m32 -D_LINUX_OS</commandLine>
+        </ccTool>
+      </compileType>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <compilerSet>GNU|GNU</compilerSet>
+        <platform>2</platform>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <incDir>
+            <pElem>../C_libs</pElem>
+          </incDir>
+          <commandLine>-static -pedantic -Wall -m32 -D_LINUX_OS</commandLine>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+      </compileType>
+    </conf>
+    <conf name="Release_macOS" type="1">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <compilerSet>GNU|GNU</compilerSet>
+        <platform>2</platform>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <incDir>
+            <pElem>../C_libs</pElem>
+          </incDir>
+          <commandLine>-pedantic -Wall -m32</commandLine>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+      </compileType>
+    </conf>
+  </confs>
+</configurationDescriptor>

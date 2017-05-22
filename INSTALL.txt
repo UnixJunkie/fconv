@@ -1,0 +1,100 @@
+
+#============================================================================
+# fconv; format conversion, manipulation, and feature computaion
+#        of molecular data
+#
+# Copyright (C) 2007, 2008, 2009, 2010, 2011, 2012  Gerd Neudert
+#
+# fconv is free software; you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation; either version 3 of the License, or (at your option) any later
+# version.
+#
+# This program is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+# FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+# more details.
+#
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, see <http:#www.gnu.org/licenses/>.
+#----------------------------------------------------------------------------
+#
+# author:      Gerd Neudert
+#              gneudert(place_at_here)web.de
+# supervisor:  Prof. Dr. Gerhard Klebe
+#              klebe(place_at_here)staff.uni-marburg.de
+# Department of Pharmaceutical Chemistry, Philipps-University of Marburg
+#
+# We acknowledge the Cambridge Crystallographic Data Centre (CCDC) for
+# the permission to use CSD-derived data for bond lengths and bond angles,
+# as found in 'ELEMENT_DATA_GN.hpp'.
+#---------------------------------------------------------------------------- 
+
+
+ If you downloaded the precompiled executables, you may just use them.
+ If not read on the following text carefully.
+
+
+ I am currently using gcc 4.5.x on Ubuntu and gcc 4.5.x on Windows7 (MinGW)
+ and Mac. The code compiles without any errors or warnings with options
+ '-pedantic -Wall -O2' on all 3 systems.
+ Currently I manage my code with NetBeans, but maybe switch
+ to my beloved QtCreator soon.
+ 
+ Gerd Neudert, Marburg 30.09.2010
+
+
+Installation notes:
+===================
+
+ -> After extraction of the sources you should have a directory
+    'fconv_source', containing all neccessary files.
+ 
+ -> If you are using NetBeans IDE you can directly use the 
+    fconv subdirectory as NetBeans project (if not go on to the next point).
+    It's comming with predefined settings 32Bit Linux, Windows and MacOS
+    and static linking.
+    
+ -> If compiling 'by hand' follow the specific instructions for your OS:
+    --> Linux/Unix systems:
+        1.) open a shell an go into the fconv_source/fconv/ subdirectory
+        2.) The makefile is setup to generate 32Bit code and link statically.
+            If you want to generate 64Bit code or if you do not want
+            to link statically, you have to edit 'nbproject/Makefile-Release.mk'
+            and remove the corresponding flags from 'CCFLAGS' and 'CXXFLAGS'.
+        3.) To make the fconv executable use the following command:
+            'make CONF=Release build'
+        => Now you should have 'dist/Release/GNU-Linux-x86/fconv' as
+           single independent executable.
+        4.) If you have to clean your worktree use:
+            'make CONF=Release clean'
+    
+    --> Mac OS systems:
+        I only tested on Intel-based Macs.
+        1.) open a shell an go into the fconv_source/fconv/ subdirectory
+        2.) The makefile is setup to generate 32Bit code.
+            If you want to generate 64Bit code you have to edit
+            'nbproject/Makefile-Release_macOS.mk' and remove the
+            corresponding flag from 'CCFLAGS' and 'CXXFLAGS'.
+        3.) To make the fconv executable use the following command:
+            'make CONF=Release_macOS build'
+        => Now you should have 'dist/Release_macOS/GNU-Linux-x86/fconv' as
+           single independent executable.
+        4.) If you have to clean your worktree use:
+            'make CONF=Release_macOS clean'
+    
+    --> Windows systems:
+        Here I am using a quick and dirty hand-made makefile, as the
+        NetBeans makefile do not work with my MinGW make.
+        1.) Make sure to have a proper installation of MinGW (including
+            make), open a shell and go to the directory fconv_source/fconv
+        2.) The makefile is setup to generate 32Bit code. If you want to
+            generate 64Bit code (and have installed 64Bit MinGW), please
+            edit 'windows_makefile' and remove the '-m32' flag from the
+            'comp' variable.
+        3.) Use the following command:
+            'make -f windows_makefile fconv.exe'
+        => Now you should have 'fconv.exe' as single independent executable.
+        4.) If you want to clean your object files use:
+            'make -f windows_makefile clean'
+

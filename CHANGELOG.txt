@@ -1,0 +1,29 @@
+ --> Version history:
+ --------------------
+ -> version 1.24: 30.01.2012
+    - '-clust' for PDBs: hierarchical complete linkage clustering
+       with respect to backbone shape similarity
+    - fixed a minor bug in aromaticity detection
+
+ -> version 1.23: 22.10.2011
+    - speedup in shape-based protein alignment (-oa2)
+    - tolerance for deviations in shape-based
+       alignment can now be changed by the user
+
+ -> version 1.22: 08.10.2011
+    - cleaned up some parts of the source code
+
+ -> version 1.21: 27.09.2011
+    - deleted the old Changelog
+    - started to clear out some parts of the code (still a lot to do)
+        => some significant changes in the routines for atom type
+           perception => Please watch the results carefully, as some
+           newly introduced BUGs are possible! However, the overall
+           performance should have been improved.
+    - 2 new atom types
+    - 2 new options:
+        -> '-NCA': This flag disables the possibility of charged aromatics
+        -> '-KA': This flag set alternating double bonds instead of
+                  aromatic bond type
+    - slightly speedup in RMSD calculation
+

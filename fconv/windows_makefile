@@ -1,0 +1,70 @@
+# This makefile is tested under Windows7 using MinGW and gcc 4.5.0
+# It's very ugly style, but on my testsystem it compiles without
+# any errors or warnings. If someone is able to get NetBeans
+# generating valid makefiles for windows please tell me...
+# Gerd Neudert, 30.09.2010
+
+comp = g++ -O2 -m32 -static -pedantic -Wall
+libs = ../C_libs/
+
+fconv.exe: delaunay_GN.o structure_GN.o files_GN.o fconv.o ELEMENT_DATA_new_GN.o mw_match_GN.o\
+           atom_GN.o molecule_GN.o structure_additional_GN.o atom_properties_GN.o protein_GN.o crystallizer_GN.o
+	$(comp) -o fconv.exe delaunay_GN.o files_GN.o structure_GN.o fconv.o ELEMENT_DATA_new_GN.o mw_match_GN.o\
+	           atom_GN.o molecule_GN.o structure_additional_GN.o atom_properties_GN.o protein_GN.o crystallizer_GN.o -I$(libs)
+
+clean:
+	del *.o
+	
+fconv.o: fconv.cpp $(libs)files_GN.h $(libs)files_GN.cpp $(libs)structure_GN.h $(libs)structure_GN.cpp\
+                   $(libs)molecule_GN.h $(libs)molecule_GN.cpp $(libs)atom_GN.h $(libs)atom_GN.cpp\
+                   $(libs)protein_GN.h $(libs)protein_GN.cpp $(libs)structure_additional_GN.h $(libs)structure_additional_GN.cpp\
+                   $(libs)mw_match_GN.h $(libs)mw_match_GN.cpp $(libs)ELEMENT_DATA_new_GN.h $(libs)ELEMENT_DATA_new_GN.cpp\
+                   $(libs)crystallizer_GN.h $(libs)crystallizer_GN.cpp
+	$(comp) -c fconv.cpp -I$(libs)
+
+files_GN.o: $(libs)files_GN.h $(libs)files_GN.cpp $(libs)structure_GN.h $(libs)structure_GN.h\
+            $(libs)atom_GN.h $(libs)atom_GN.cpp $(libs)atom_properties_GN.h $(libs)atom_properties_GN.cpp\
+            $(libs)protein_GN.h $(libs)protein_GN.cpp\
+            $(libs)structure_additional_GN.cpp $(libs)structure_additional_GN.h
+	$(comp) -c $(libs)files_GN.cpp -I$(libs)
+
+structure_GN.o: $(libs)structure_GN.cpp $(libs)structure_GN.h $(libs)delaunay_GN.h $(libs)delaunay_GN.cpp\
+                $(libs)atom_GN.h $(libs)atom_GN.cpp $(libs)molecule_GN.h $(libs)molecule_GN.cpp $(libs)atom_properties_GN.h\
+                $(libs)mw_match_GN.h $(libs)mw_match_GN.cpp $(libs)ELEMENT_DATA_new_GN.h $(libs)ELEMENT_DATA_new_GN.cpp\
+                $(libs)atom_properties_GN.cpp $(libs)structure_additional_GN.cpp $(libs)structure_additional_GN.h
+	$(comp) -c $(libs)structure_GN.cpp -I$(libs)
+
+delaunay_GN.o: $(libs)delaunay_GN.cpp $(libs)delaunay_GN.h
+	$(comp) -c $(libs)delaunay_GN.cpp -I$(libs)
+
+atom_GN.o: $(libs)atom_GN.h $(libs)atom_GN.cpp
+	$(comp) -c $(libs)atom_GN.cpp -I$(libs)
+
+molecule_GN.o: $(libs)molecule_GN.h $(libs)molecule_GN.cpp $(libs)atom_GN.h $(libs)atom_GN.cpp\
+               $(libs)mw_match_GN.h $(libs)mw_match_GN.cpp $(libs)ELEMENT_DATA_new_GN.h $(libs)ELEMENT_DATA_new_GN.cpp\
+               $(libs)atom_properties_GN.h $(libs)atom_properties_GN.cpp $(libs)structure_additional_GN.cpp\
+               $(libs)structure_additional_GN.h
+	$(comp) -c $(libs)molecule_GN.cpp -I$(libs)
+
+protein_GN.o: $(libs)protein_GN.h $(libs)protein_GN.cpp\
+              $(libs)molecule_GN.h $(libs)molecule_GN.cpp $(libs)atom_GN.h $(libs)atom_GN.cpp\
+              $(libs)mw_match_GN.h $(libs)mw_match_GN.cpp $(libs)ELEMENT_DATA_new_GN.h $(libs)ELEMENT_DATA_new_GN.cpp
+	$(comp) -c $(libs)protein_GN.cpp -I$(libs)
+
+structure_additional_GN.o: $(libs)structure_additional_GN.h $(libs)structure_additional_GN.cpp
+	$(comp) -c $(libs)structure_additional_GN.cpp -I$(libs)
+
+atom_properties_GN.o: $(libs)atom_properties_GN.h $(libs)atom_properties_GN.cpp
+	$(comp) -c $(libs)atom_properties_GN.cpp -I$(libs)
+
+crystallizer_GN.o: $(libs)crystallizer_GN.h $(libs)crystallizer_GN.cpp $(libs)atom_GN.h $(libs)atom_GN.cpp\
+                   $(libs)molecule_GN.h $(libs)molecule_GN.cpp $(libs)structure_GN.cpp $(libs)structure_GN.h\
+                   $(libs)mw_match_GN.h $(libs)mw_match_GN.cpp $(libs)ELEMENT_DATA_new_GN.h $(libs)ELEMENT_DATA_new_GN.cpp
+	$(comp) -c $(libs)crystallizer_GN.cpp -I$(libs)
+
+mw_match_GN.o: $(libs)mw_match_GN.h $(libs)mw_match_GN.cpp
+	$(comp) -c $(libs)mw_match_GN.cpp -I$(libs)
+
+ELEMENT_DATA_new_GN.o: $(libs)ELEMENT_DATA_new_GN.h $(libs)ELEMENT_DATA_new_GN.cpp
+	$(comp) -c $(libs)ELEMENT_DATA_new_GN.cpp -I$(libs)
+
