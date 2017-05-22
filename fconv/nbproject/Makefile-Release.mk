@@ -51,8 +51,8 @@ OBJECTFILES= \
 CFLAGS=
 
 # CC Compiler Flags
-CCFLAGS=-static -pedantic -Wall -m32 -D_LINUX_OS
-CXXFLAGS=-static -pedantic -Wall -m32 -D_LINUX_OS
+CCFLAGS=-static -pedantic -Wall -D_LINUX_OS
+CXXFLAGS=-static -pedantic -Wall -D_LINUX_OS
 
 # Fortran Compiler Flags
 FFLAGS=
